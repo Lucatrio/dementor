@@ -6,15 +6,6 @@ client.on("ready", () => {
     console.log(`${client.user.username} has logged on with ${client.users.size} users`);
     client.user.setActivity('over azkaban', { type: 'WATCHING' });
 });
-fs.readdir("./src/", (err, files) => {
-    if (err) console.log(err);
-    files.forEach(file => {
-        let dafunction = require(`./src/${file}`);
-        let commandName = file.split('.')[0];
-
-        client.on(commandName, (...args) => dafunction.run(client, ...args));
-    });
-});
 
 client.on("message", async message => {
 
