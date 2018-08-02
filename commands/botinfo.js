@@ -6,8 +6,6 @@ module.exports.run = async (client, message, args) => {
     if(!user) user = client.user;
     else user = message.mentions.members.first();
 
-    if(!user.bot) return;
-
     let embed = new Discord.RichEmbed()
         .setColor('36393F')
         .setThumbnail(user.displayAvatarURL)
