@@ -33,4 +33,4 @@ client.on("message", async message => {
         console.log(err);
     }
 });
-client.login('NDc0NjUzNzI1OTA2OTYwNDI0.DkTnVA.HVRF0l-9COO2oRp5wSohXidCTUI')
+client.login(process.env.TOKEN)
