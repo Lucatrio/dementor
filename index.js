@@ -18,7 +18,7 @@ client.on("message", async message => {
     const command = args.shift().toLowerCase();
 
     try {
-        let commandFile = require(`./src/${command}`);
+        let commandFile = require(`./commands/${command}`);
         commandFile.run(client, message, args);
     } catch (err) {
         console.log(err);
