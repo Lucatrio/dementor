@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports.run = async (client, message, args) => {
-    if(message.channel.type != 'dm') return;
+    if(message.channel.type != 'dm') return message.channel.send(`Sorry, ${message.author.username} you cannot use this command`);
     try {
         if(!args[0]) return message.channel.send(`Sorry, please put a valid bot invite url`);
         if(!message.content.includes(`https://discordapp.com/oauth2/authorize?client_id=`)) return message.author.send(`Sorry, please input a valid bot invite url`);
