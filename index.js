@@ -31,7 +31,8 @@ client.on("message", async msg => {
         let embed = new Discord.RichEmbed()
             .setColor("41f467")
             .setAuthor(`${GuildMember.username}`, GuildMember.displayAvatarURL)
-            .setFooter(`User joined`)
+            .setFooter(`User joined`);
+        channel.send(embed);
     });
     
     client.on("guildMemberRemove", (GuildMember) => {
@@ -39,7 +40,8 @@ client.on("message", async msg => {
         let embed = new Discord.RichEmbed()
             .setColor("f44141")
             .setAuthor(`${GuildMember.username}`, GuildMember.displayAvatarURL)
-            .setFooter(`User left`)
+            .setFooter(`User left`);
+        channel.send(embed);
     });
 });
 client.login(process.env.TOKEN)
