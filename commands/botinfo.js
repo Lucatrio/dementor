@@ -2,9 +2,9 @@ const Discord = require('discord.js');
 
 module.exports.run = async (client, message, args) => {
 
-    let user = message.mentions.members.first();
+    let user = message.mentions.users.first();
     if(!user) user = client.user;
-    else user = message.mentions.members.first();
+    else user = message.mentions.users.first();
     if(!user.bot) return;
 
     let embed = new Discord.RichEmbed()
