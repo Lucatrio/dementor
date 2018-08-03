@@ -23,22 +23,23 @@ client.on("message", async message => {
     } catch (err) {
         console.log(err);
     }
+});
+
+client.on("message", async msg => {
+    client.on("guildMemberAdd", (GuildMember) => {
+        let channel = msg.guild.channels.find("name", "join");
+        let embed = new Discord.RichEmbed()
+            .setColor("41f467")
+            .setAuthor(`${GuildMember.username}`, GuildMember.displayAvatarURL)
+            .setFooter(`User joined`)
+    });
     
- client.on("guildMemberAdd", (member) => {
-    let channel = message.guild.channels.find("name", "join");
-    let embed = new Discord.RichEmbed()
-        .setColor("42f45c")
-        .setAuthor(`${member.username}#${message.discriminator}`, member.displayAvatarURL)
-        .setFooter(`User Joined`);
-    channel.send(embed);
-});
- client.on("guildMemberRemove", (member) => {
-    let channel = message.guild.channels.find("name", "join");
-    let embed = new Discord.RichEmbed()
-        .setColor("f44141")
-        .setAuthor(`${member.username}#${message.discriminator}`, member.displayAvatarURL)
-        .setFooter(`User Left`);
-    channel.send(embed);
-});
+    client.on("guildMemberRemove", (GuildMember) => {
+        let channel = msg.guild.channels.find("name", "join");
+        let embed = new Discord.RichEmbed()
+            .setColor("f44141")
+            .setAuthor(`${GuildMember.username}`, GuildMember.displayAvatarURL)
+            .setFooter(`User left`)
+    });
 });
 client.login(process.env.TOKEN)
