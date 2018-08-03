@@ -34,14 +34,4 @@ client.on("message", async msg => {
             .setFooter(`User joined`);
         channel.send(embed);
     });
-    
-    client.on("guildMemberRemove", (GuildMember) => {
-        let channel = msg.guild.channels.find("name", "join");
-        let embed = new Discord.RichEmbed()
-            .setColor("f44141")
-            .setAuthor(`${GuildMember.username}`, GuildMember.displayAvatarURL)
-            .setFooter(`User left`);
-        channel.send(embed);
-    });
-});
 client.login(process.env.TOKEN)
