@@ -4,8 +4,7 @@ module.exports.run = async (client, message, args) => {
     let emoji = '<:lucatrio:475075813226577938>';
     let embed = new Discord.RichEmbed()
         .setColor('36393F')
-        .addField(`Owner`, 'Lucatrio')
-        .setFooter(emoji);
+        .setDescription(emoji + ' Lucatrio')
     message.channel.send(embed);
 }
 
