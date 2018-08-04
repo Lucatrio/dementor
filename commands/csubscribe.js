@@ -6,7 +6,7 @@ module.exports.run = async (client, message, args) => {
   let role = message.guild.roles.find('name', 'Subscribed');
   let embed = new Discord.RichEmbed()
     .setColor("36393F")
-    .setAuthor(role.toString())
+    .setDescription(role.toString())
     .addField(`Context`, text);
   message.react('✔');
   channel.send(embed);
