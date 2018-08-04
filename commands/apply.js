@@ -7,9 +7,10 @@ module.exports.run = async (client, message, args) => {
         if(!message.content.includes(`https://discordapp.com/oauth2/authorize?client_id=`)) return message.author.send(`Sorry, please input a valid bot invite url`);
         let queue = client.channels.get("474664899553919019");
         let pubqueue = client.channels.get("475291636394360832");
-        let id = args[0].split("client_id=")[2].slice(-1)
-        let bot_mention = `@<${id}>`;
         let url = `[here](${args[0]})`;
+        let daembed = new Discord.RichEmbed()
+            .setColor("36393F")
+            .setAuthor(`${message.author.username} added a bot to the queue`, message.author.displayAvatarURL)
         let embed = new Discord.RichEmbed()
             .setColor("36393F")
             .setAuthor(`${message.author.username}`, message.author.displayAvatarURL)
@@ -19,7 +20,7 @@ module.exports.run = async (client, message, args) => {
                 queue.send(embed).then(damsg => {
                     damsg.react('✔');
                 });
-                pubqueue.send(`${message.author.toString()} added ${bot_mention}`).then(damsg1 => {
+                pubqueue.send(daembed).then(damsg1 => {
                     damsg1.react('✔');
                     damsg1.react('🚫');
                 }); 
