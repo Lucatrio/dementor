@@ -4,10 +4,11 @@ module.exports.run = async (client, message, args) => {
   let channel = client.channels.get("475330079426347018");
   if(message.author.id != '366283647587713034') return;
   
+  let text = args.join(" ");
   let embed = new Discord.RichEmbed()
     .setColor("36393F")
     .addField(`<@&&475330742080241664>`)
-    .addField(`Certain role only`, args.join(' '));
+    .addField(`Certain role only`, text);
   message.channel.send(embed);
 }
 
