@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 module.exports.run = async (client, message, args) => {
   let channel = client.channels.get("475330079426347018");
-  if(message.author.id != '366283647587713034')) return;
+  if(message.author.id != '366283647587713034') return;
   
   let embed = new Discord.RichEmbed()
     .setColor("36393F")
