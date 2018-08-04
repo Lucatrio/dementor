@@ -24,14 +24,4 @@ client.on("message", async message => {
         console.log(err);
     }
 });
-
-client.on("message", async msg => {
-    client.on("guildMemberAdd", (GuildMember) => {
-        let channel = msg.guild.channels.find("name", "join");
-        let embed = new Discord.RichEmbed()
-            .setColor("41f467")
-            .setAuthor(`${GuildMember.username}`, GuildMember.displayAvatarURL)
-            .setFooter(`User joined`);
-        channel.send(embed);
-    });
 client.login(process.env.TOKEN)
