@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const client = new Discord.Client({disableEveryone: true});
 const fs = require('fs');
 const db = require('quick.db');
-let prefix = 'd:';
 
 client.on("ready", () => {
     console.log(`${client.user.username} has logged on with ${client.users.size} users`);
@@ -10,9 +9,10 @@ client.on("ready", () => {
 });
 
 client.on("message", async message => {
-
+    
+    let prefix = 'd:';
     let fetched = await db.fetch(`prefix_${message.guild.id}`);
-    if(fetched === null) prefix = 'd:';
+    if (fetched === null) prefix = 'd:';
     else prefix = fetched;
     
     if (message.author.bot) return;
