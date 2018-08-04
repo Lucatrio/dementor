@@ -8,7 +8,7 @@ module.exports.run = async (client, message, args) => {
         let queue = client.channels.get("474664899553919019");
         let pubqueue = client.channels.get("475291636394360832");
         let id = args[0].match().map(Number);
-        let bot_mention = `<${id}>`;
+        let bot_mention = `@<${id}>`;
         let url = `[here](${args[0]})`;
         let embed = new Discord.RichEmbed()
             .setColor("36393F")
