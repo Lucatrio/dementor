@@ -20,8 +20,8 @@ module.exports.run = async (client, message, args) => {
                     damsg.react('✔');
                 });
                 pubqueue.send(`${message.author.toString()} added ${bot_mention}`).then(damsg1 => {
-                    await damsg1.react('✔');
-                    await damsg1.react('🚫');
+                    damsg1.react('✔');
+                    damsg1.react('🚫');
                 }); 
             }
     } catch (err) {
