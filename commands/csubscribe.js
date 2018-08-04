@@ -8,7 +8,8 @@ module.exports.run = async (client, message, args) => {
     .setColor("36393F")
     .setAuthor(role)
     .addField(`Context`, text);
-    channel.send(embed);
+  message.react('✔');
+  channel.send(embed);
 }
 
 module.exports.help = {
