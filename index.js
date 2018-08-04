@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client({disableEveryone: true});
 const fs = require('fs');
+const db = require('quick.db');
 const prefix = 'd:';
 
 client.on("ready", () => {
